@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* পাখির কোড এইখান থেকে শুরু  */
+.container1
+{
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+  /* প্রতিটা কন্টেইনার আর অবস্থা আর লোকেশন  */
+}
+.bird1{
+    background-image: url(bird-cells-new.svg);
+    background-size: auto 100%;
+    /* এস-ভি-জি টাকে জুম করলাম এইখানে   */
+
+    height: 248px;
+    width: 146px;
+    /* প্রতিটা পাখির সাইজ */
+
+    animation-name: fly-cycle;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+    animation-duration: 3.3s;
+    animation-delay: 1s;
+    overflow: hidden;
+    /* পাখির অ্যানিমেশন  */
+}
+
+@keyframes fly-cycle{
+
+    0%{
+      transform: translateX(-1500px);
+    }
+    100%{
+        background-position: -3600px 0;
+        transform: translateX(3000px);
+    }
+}
+
+.container2
+{
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  transform: translate(-50%, -50%);
+}
+.bird2{
+    background-image: url(bird-cells-new.svg);
+    background-size: auto 100%;
+    height: 248px;
+    width: 146px;
+
+    animation-name: fly-cycle2;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+    animation-duration: 4.3s;
+    animation-delay: 2s;
+}
+@keyframes fly-cycle2{
+
+    0%{
+      transform: translateX(-1500px);
+    }
+    50%{
+        transform: translateX(200px);
+    }
+    100%{
+        background-position: -3600px 0;
+        transform: translateX(1700px);
+    }
+}
+
+
+.container3
+{
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+}
+.bird3{
+    background-image: url(bird-cells-new.svg);
+    background-size: auto 100%;
+    height: 248px;
+    width: 146px;
+
+    animation-name: fly-cycle3;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+    animation-duration: 3.3s;
+    animation-delay: 3s;
+}
+@keyframes fly-cycle3{
+
+    0%{
+      transform: translateX(-30vw);
+    }
+    100%{
+        background-position: -3600px 0;
+        transform: translateX(85vw);
+    }
+}
+
+/* পাখির কোড এইখান থেকে শেষ  */
+
+
+
+
+
+
+.scene
+{
+   position: relative;
+   height: 100vh;
+   overflow-x: hidden;
+   background: linear-gradient( rgb(150, 238, 243), rgb(230, 227, 227) );
+   /* এখানে লিনিয়ার ব্যাকগ্রাউন্ড দিয়ে স্ক্রিন-এর  কালারটা সামান্য চেঞ্জ করে দেয়া হইসে  */
+}
+.dark .scene
+{
+    background: rgb(17, 17, 17);
+    /* ডার্ক এ ক্লিক করলে স্ক্রিনের কালার যে পরিবর্তন হবে সেটা  */
+}
+.sun
+{
+   position: absolute;
+   top: 10%;
+   left: 50%;
+   transform: translateX(-50%, -50%);
+   height: 120px;
+   width: 120px;
+   background-color: cornsilk;
+   border-radius: 50%;
+   box-shadow: 0 0 30px rgb(236, 215, 215);
+   cursor: pointer;
+   transition: .4s;
+   /* এখানে পসিশনটাকে অ্যাবসলিউট করে দিয়ে সূর্যটাকে বসানো হয়েছে  */
+}
+.dark .sun{
+    left: 40%;
+    box-shadow: 0 0 40px rgb(12, 17, 17);
+    /* অন্ধকারে সূর্যটা বামে ৪০% সরে যাবে  */
+}
+.dark .sun::after
+{
+    content: '';
+    position: absolute;
+    left: 13%;
+    top: -15%;
+    background: rgb(17, 17, 17);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: none;
+    /* রাতের চাঁদ আনার জন্য সূর্যের উপর আরেকটা ব্ল্যাক সূর্য অ্যাবসলিউট করে বসিয়ে দেয়া হয়েছে, 
+    তারপর লেফট-টপ কমিয়ে বাড়িয়ে সেটাকে সূর্যের থেকে চাঁদের রূপ দেয়া হইসে   */
+}
+.bg
+{
+    position: absolute;
+    height: 400px;
+    width: 100%;
+    bottom: 0;    
+    background-image: url(bg.png);
+    background-size: 2000px;
+    background-repeat: repeat-x;
+    animation: bg 13s linear infinite;
+    /* ব্যাকগ্রাউন্ড ইমেজ ( গাছপালা সহ ) তা এইখানে অ্যাড করে দেয়া হয়েছে 
+    সাথে বলে দেয়া হয়েছে ব্যাকগ্রাউন্ড এর সাইজও */
+}
+@keyframes bg
+{
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x: 2000px;
+    }
+    /* ব্যাকগ্রাউন্ড আর এনিমেশনের জন্য অক্ষ বরাবর এই background-position-x কম্যান্ড তা দিতে হবে আর ব্যাকগ্রাউন্ড সাইজও হিসাবে যতটুকু  background-size সাইজও দিয়েছি 
+    ততটুকু সাইজই বা তারচেয়ে বেশি সাইজও দিয়ে যাবে বাট কম দেয়া যাবে নাহ দিতে হবে  */
+} 
+
+.car1{
+   position: absolute;
+   height: 140px;
+   width: 210px;
+   bottom: 20px;
+   animation: car1 13s linear infinite;
+   z-index: 5;
+}
+@keyframes car1{
+    0%{
+        transform: translateX(-10px);
+    }
+    90%, 100%{
+        transform: translateX(2500px);
+    }
+    /* প্রথম গাড়ির অ্যানিমেশন  */
+}
+
+.car2{
+    position: absolute;
+    height: 140px;
+    width: 210px;
+    bottom: 70px;
+    right: 0;
+    z-index: 4;
+    animation: car2 19s linear infinite;
+}
+@keyframes car2{
+     0%{
+         transform: translateX(0px) rotateY(180deg);
+     }
+     90%, 100%{
+         transform: translateX(-2500px)  rotateY(180deg) ;
+     }
+     /* দ্বিতীয় গাড়ির অ্যানিমেশন  */
+     /* আর সাথে দ্বিতীয় গাড়ির রোটেট হয়ে উল্টা দিক থেকে আশা  */
+}

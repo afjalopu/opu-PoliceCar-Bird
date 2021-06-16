@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="easy.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class="scene" >
+        <div class="sun"></div>
+        <div class="bg">
+            <img src="police_car.gif" class="car1">
+            <img src="police_car.gif" class="car2">
+        </div>
+
+        <div class="container1">
+            <div class="bird1"></div>
+        </div>
+        
+        <div class="container2">
+            <div class="bird2"></div>
+        </div>
+    
+        <div class="container3">
+            <div class="bird3"></div>
+        </div>
+    
+
+
+    </section>
+
+    <script>
+        // ডার্ক করার কোড 
+        const sun = document.querySelector('.sun');
+        const body = document.querySelector('body');
+        sun.onclick = function()
+        {
+            body.classList.toggle('dark');
+        }
+    </script>
+
+
+</body>
+</html>
